@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import Die from "./Die";
+import Confetti from 'react-confetti';
 
 function App() {
   const [dice,setDice] = React.useState(allNewDice());
@@ -67,6 +68,7 @@ function App() {
         {tenzies ? "Restart" : "Roll"}
       </button>
       {tenzies &&<h1 className="you-win">YOU WIN</h1>}
+      {tenzies && <Confetti />}
     </main>
   );
 }
