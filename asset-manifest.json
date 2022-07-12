@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Tarun-s-Dice/static/css/main.93ce84e7.css",
-    "main.js": "/Tarun-s-Dice/static/js/main.5badfbc8.js",
+    "main.js": "/Tarun-s-Dice/static/js/main.0a8c982a.js",
     "static/js/787.5cf4e54a.chunk.js": "/Tarun-s-Dice/static/js/787.5cf4e54a.chunk.js",
     "index.html": "/Tarun-s-Dice/index.html",
     "main.93ce84e7.css.map": "/Tarun-s-Dice/static/css/main.93ce84e7.css.map",
-    "main.5badfbc8.js.map": "/Tarun-s-Dice/static/js/main.5badfbc8.js.map",
+    "main.0a8c982a.js.map": "/Tarun-s-Dice/static/js/main.0a8c982a.js.map",
     "787.5cf4e54a.chunk.js.map": "/Tarun-s-Dice/static/js/787.5cf4e54a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.93ce84e7.css",
-    "static/js/main.5badfbc8.js"
+    "static/js/main.0a8c982a.js"
   ]
 }
