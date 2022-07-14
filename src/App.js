@@ -3,17 +3,31 @@ import React from 'react';
 import './App.css';
 import Die from "./Die";
 import Confetti from 'react-confetti';
+import Title from "./Title";
 
 function App() {
   const [dice,setDice] = React.useState(allNewDice());
-  const [tenzies, setTenzies] = React.useState(false);
+  const [tenzies, setTenzies] = React.useState(0);
+  const [sec,setSec] = React.useState(15);
 
   React.useEffect(() => {
+    console.log(tenzies +" "+ sec);
+    let key = setTimeout(() => setSec(prev => prev-1 >= 0 ? prev-1 : prev), 1000);
+    if(sec === 0 && tenzies === 0)  {
+      setTenzies(2);
+    }
+    if(tenzies === 2) {
+      clearTimeout(key);
+    }
+    return () => clearTimeout(key);
+  },[sec,tenzies]);
+
+  React.useEffect(() => { 
     let temp = dice[0].value;
     for(let i of dice) {
       if(temp !== i.value) return;
     }
-    setTenzies(true);
+    setTenzies(1);
     console.log("yes you win");
   },[dice])
 
@@ -46,16 +60,17 @@ function App() {
   }
 
   function restart() {
-    setTenzies(false);
+    setTenzies(0);
     setDice(allNewDice());
+    setSec(15);
   }
   
 
   return (
     <main>
-      <h1 className="title">Tarun's Dice</h1>
-      <p className="instructions">Roll until all dices are the same.
-       Click each die to freeze its current value between the rolls.</p>
+      <Title />
+      <h2 className="timer">Time left <span>{sec < 10 ? "0"+sec : sec}</span></h2>
+      
       <div className="dice-container">
         {dice.map(item => <Die 
         key={item.id} 
@@ -67,8 +82,9 @@ function App() {
       <button className="roll-dice" onClick={!tenzies ? rollDice : restart}>
         {tenzies ? "Restart" : "Roll"}
       </button>
-      {tenzies &&<h1 className="you-win">YOU WIN</h1>}
-      {tenzies && <Confetti />}
+      {tenzies === 1 &&<h1 className="you-win">YOU WIN</h1>}
+      {tenzies === 1 && <Confetti />}
+      {tenzies === 2 &&<h1 className="you-lose">YOU LOSE</h1>}
     </main>
   );
 }
