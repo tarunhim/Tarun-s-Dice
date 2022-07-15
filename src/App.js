@@ -25,7 +25,7 @@ function App() {
   React.useEffect(() => { 
     let temp = dice[0].value;
     for(let i of dice) {
-      if(temp !== i.value) return;
+      if(temp !== i.value || !i.isHeld) return;
     }
     setTenzies(1);
     console.log("yes you win");
