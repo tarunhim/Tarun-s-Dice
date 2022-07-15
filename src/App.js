@@ -8,7 +8,7 @@ import Title from "./Title";
 function App() {
   const [dice,setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(0);
-  const [sec,setSec] = React.useState(30);
+  const [sec,setSec] = React.useState(15);
 
   React.useEffect(() => {
     console.log(tenzies +" "+ sec);
@@ -64,7 +64,7 @@ function App() {
   function restart() {
     setTenzies(0);
     setDice(allNewDice());
-    setSec(30);
+    setSec(15);
   }
   
 
