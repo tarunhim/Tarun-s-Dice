@@ -8,7 +8,7 @@ import Title from "./Title";
 function App() {
   const [dice,setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(0);
-  const [sec,setSec] = React.useState(15);
+  const [sec,setSec] = React.useState(30);
 
   React.useEffect(() => {
     console.log(tenzies +" "+ sec);
@@ -51,18 +51,20 @@ function App() {
   }
   
   function holdDice(id) {
+    if(tenzies !== 2) {
     setDice(prev => {
       return prev.map(item => 
         item.id === id ? 
         {...item,isHeld:!item.isHeld} : item);
     });
+  }
 
   }
 
   function restart() {
     setTenzies(0);
     setDice(allNewDice());
-    setSec(15);
+    setSec(30);
   }
   
 
